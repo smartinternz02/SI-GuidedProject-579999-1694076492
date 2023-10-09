@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>SpaceX Launch Success Prediction</title>
+
+    <!-- Icons font CSS-->
+    <link href="../static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="../static/https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="../static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../static/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-40 p-b-40 font-poppins" style="background-image: url('../static/images/bg.jpeg'); background-repeat:no-repeat;  background-size: cover; background-position: center;">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">SpaceX Falcon 9 First Stage Landing Success Predictor</h2>
+                    <form method="POST" action="{{ url_for('predict')}}">
+                        <div class="input-group">
+                            <label class="label">Payload Mass</label>
+                            <input class="input--style-4" type="number" name="PayloadMass" placeholder="Enter Payload Mass">
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Orbit</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="Orbit">
+                                            <option disabled="disabled" selected="selected">Select Orbit</option>
+                                            <option value="0">ES-L1</option>
+                                            <option value="1">GEO</option>
+                                            <option value="2">GTO</option>
+                                            <option value="3">HEO</option>
+                                            <option value="4">ISS</option>
+                                            <option value="5">LEO</option>
+                                            <option value="6">MEO</option>
+                                            <option value="7">PO</option>
+                                            <option value="8">SSO</option>
+                                            <option value="9">VLEO</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Launch Site</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="LaunchSite">
+                                            <option disabled="disabled" selected="selected">Select Launch Site</option>
+                                            <option value="0">CCAFS SLC 40</option>
+                                            <option value="1">KSC LC 39A</option>
+                                            <option value="2">VAFB SLC 4E</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Longitude</label>
+									<div class="rs-select2 js-select-simple select--no-search">
+										<select name="Longitude">
+											<option disabled="disabled" selected="selected">Select Longitude</option>
+											<option value="0">-120.610829</option>
+											<option value="1">-80.603956</option>
+											<option value="2">-80.577366</option>
+										</select>
+										<div class="select-dropdown"></div>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Latitude</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+										<select name="Latitude">
+											<option disabled="disabled" selected="selected">Select Latitude</option>
+											<option value="0">28.5618571</option>
+											<option value="1">28.608058</option>
+											<option value="2">34.632093</option>
+										</select>
+										<div class="select-dropdown"></div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Grid Fins</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Used
+                                            <input type="radio" name="GridFins" value="1">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Not Used
+                                            <input type="radio" name="GridFins" value="0">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Legs</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Used
+                                            <input type="radio" name="Legs" value="1">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Not Used
+                                            <input type="radio" name="Legs" value="0">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Core Block Version</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="Block">
+                                            <option disabled="disabled" selected="selected">Select Core Block Version</option>
+                                            <option value="1.0">1.0</option>
+                                            <option value="2.0">2.0</option>
+                                            <option value="3.0">3.0</option>
+                                            <option value="4.0">4.0</option>
+                                            <option value="5.0">5.0</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Flights with that Core</label>
+                                    <input class="input--style-4" type="number" name="Flights" placeholder="Enter number of Flights with the core">
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="input-group">
+                            <label class="label">Core Reused Count</label>
+                            <input class="input--style-4" type="number" name="ReusedCount" placeholder="Enter Number of times core has been reused (0 if not reused)">
+                        </div>
+                        
+						
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Launch</button>
+                        </div>
+						<div class="p-t-5" style="text-align: center;">
+                            <h3 class="result">{{ prediction_text }}</h3>
+                        </div>
+						
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="../static/vendor/select2/select2.min.js"></script>
+    <script src="../static/vendor/datepicker/moment.min.js"></script>
+    <script src="../static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="../static/js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
